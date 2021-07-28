@@ -1,8 +1,14 @@
 import fs from "fs";
 import { genUtil } from "../utils/genUtil.js";
+import { join, resolve } from "path";
 
 export class GameController {
   static initGame(req, res) {
+    const dir = join(resolve(), "game-boards");
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+
     const level = req.body.level;
     const data = genUtil.generateRandomArrayData(level);
     const jsonString = JSON.stringify(data);

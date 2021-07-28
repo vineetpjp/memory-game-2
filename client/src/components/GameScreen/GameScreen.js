@@ -52,9 +52,6 @@ function GameScreen({ location: { level } }) {
     setActiveCard1(index);
     const { data } = await gameUtil.getCardValue(index);
     setActiveCard1Value(data);
-    setTimeout(() => {
-      setActiveCard1Value(null);
-    }, CARD_REVEAL_TIME);
   };
 
   const onCard2Click = async (index) => {
@@ -78,6 +75,7 @@ function GameScreen({ location: { level } }) {
     card2Timer.current = setTimeout(() => {
       setActiveCard2Value(null);
       card2Timer.current = null;
+      setActiveCard1Value(null);
       setTable(newTable);
     }, CARD_REVEAL_TIME);
 
