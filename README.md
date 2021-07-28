@@ -1,8 +1,8 @@
 # memory-game 
 
 `yarn install`
-
-`yarn dev`
+cd client `yarn install`
+run `yarn dev` or `npm run dev` at root
 
 
 ### Also checkout my recent dummy project
